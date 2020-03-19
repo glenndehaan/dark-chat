@@ -1,0 +1,50 @@
+# Basic snap definition
+name: darkchat
+version: git
+summary: A small telnet chat server
+description: |
+  A small telnet chat server
+  Install instruction/Help: https://github.com/glenndehaan/dark-chat#install
+license: MIT
+
+# Snap state
+confinement: strict
+grade: stable
+
+# Snap base image
+base: core18
+
+# Snap architectures
+architectures:
+  - build-on: amd64
+
+# Define snap build parts
+parts:
+  node:
+    plugin: dump
+    source: https://nodejs.org/dist/latest-v8.x/node-v8.17.0-linux-x64.tar.xz
+    stage:
+      - bin
+      - include
+      - lib
+  darkchat:
+    after: [node]
+    plugin: nil
+    source: .
+    override-build: |
+      npm config set unsafe-perm true
+      npm install
+      cp -R . $SNAPCRAFT_PART_INSTALL/
+    build-packages:
+      - g++
+      - make
+
+# Define all snap commands/services
+apps:
+  darkchat:
+    command: bin/node $SNAP/src/bundle.js
+    daemon: simple
+    restart-condition: always
+    plugs:
+      - network
+      - network-bind

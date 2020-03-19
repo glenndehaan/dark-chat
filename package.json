@@ -1,0 +1,47 @@
+{
+  "name": "dark-chat",
+  "version": "0.0.0",
+  "description": "A small telnet chat server",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon --watch src --exec 'npm run lint && node ./src/server.js'",
+    "lint": "eslint -c ./package.json ./"
+  },
+  "engines": {
+    "node": "^8.0.0"
+  },
+  "author": "Glenn de Haan",
+  "license": "MIT",
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "indent": [
+        "error",
+        4
+      ]
+    },
+    "extends": [
+      "eslint:recommended"
+    ]
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "simple-node-logger": "^18.12.24",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.2"
+  }
+}
