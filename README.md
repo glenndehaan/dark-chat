@@ -2,7 +2,7 @@
 
 A small telnet chat server
 
-[![Snap Status](https://build.snapcraft.io/badge/glenndehaan/darkchat.svg)](https://build.snapcraft.io/user/glenndehaan/darkchat) [![darkchat](https://snapcraft.io//darkchat/badge.svg)](https://snapcraft.io/darkchat)
+[![Snap Status](https://build.snapcraft.io/badge/glenndehaan/dark-chat.svg)](https://build.snapcraft.io/user/glenndehaan/darkchat) [![darkchat](https://snapcraft.io//darkchat/badge.svg)](https://snapcraft.io/darkchat)
 
 ## Structure
 - ES6
