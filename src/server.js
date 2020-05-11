@@ -128,6 +128,7 @@ const server = net.createServer((socket) => {
      */
     socket.on('error', (error) => {
         global.log.error(`[SOCKET] Error: ${error.message}`);
+        removeSocket(socket);
     });
 });
 
@@ -183,7 +184,9 @@ const broadcast = (source, message) => {
  * @param socket
  */
 const removeSocket = (socket) => {
-    sockets.splice(sockets.indexOf(socket), 1);
+    if(sockets.indexOf(socket) !== -1) {
+        sockets.splice(sockets.indexOf(socket), 1);
+    }
 };
 
 /**
